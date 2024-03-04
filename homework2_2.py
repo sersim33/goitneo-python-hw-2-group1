@@ -32,9 +32,8 @@ class Record:
                 self.phones.remove(user_phone)
 
     def edit_phone(self, old_phone, new_phone):
-        for i, user_phone in enumerate(self.phones):
-            if user_phone == old_phone:
-                self.phones[i] = new_phone
+        self.phones = [new_phone if phone == old_phone else phone for phone in self.phones]
+    
 
     def find_phone(self, phone):
         for user_phone in self.phones:
@@ -98,7 +97,7 @@ found_phone = john.find_phone("5555555555")
 print(f"{john.name}: {found_phone}")  # Виведення: 5555555555
 
     # Видалення запису Jane
-book.delete("Jane")
+# book.delete("Jane")
 
 
 
